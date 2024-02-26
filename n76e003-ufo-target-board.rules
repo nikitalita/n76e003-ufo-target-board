@@ -1,0 +1,132 @@
+
+(rules PCB n76e003-ufo-target-board
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 624)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.3)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.8)
+    )
+  )
+  (rule
+    (width 254.0)
+    (clear 177.8)
+    (clear 127.0 (type smd_to_turn_gap))
+  )
+  (padstack "Via[0-1]_500:300_um"
+    (shape
+      (circle F.Cu 500.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 500.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_889:304.8_um"
+    (shape
+      (circle F.Cu 889.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 889.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_635:304.8_um"
+    (shape
+      (circle F.Cu 635.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 635.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_500:300_um" "Via[0-1]_500:300_um" default
+  )
+  (via 
+    "Via[0-1]_500:300_um-kicad_default" "Via[0-1]_500:300_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_500:300_um-Power" "Via[0-1]_500:300_um" Power
+  )
+  (via 
+    "Via[0-1]_635:304.8_um" "Via[0-1]_635:304.8_um" default
+  )
+  (via 
+    "Via[0-1]_889:304.8_um" "Via[0-1]_889:304.8_um" default
+  )
+  (via 
+    "Via[0-1]_635:304.8_um-kicad_default" "Via[0-1]_635:304.8_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_889:304.8_um-kicad_default" "Via[0-1]_889:304.8_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_635:304.8_um-Power" "Via[0-1]_635:304.8_um" Power
+  )
+  (via 
+    "Via[0-1]_889:304.8_um-Power" "Via[0-1]_889:304.8_um" Power
+  )
+  (via_rule
+    default "Via[0-1]_635:304.8_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_635:304.8_um-kicad_default"
+  )
+  (via_rule
+    Power "Via[0-1]_635:304.8_um-Power"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 254.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "unconnected-(J1-SPARE1-PadA1)" "Net-(J1-CLKOUT)" GPI01 GPI02 GPI03 GPI04 RST SCK
+    MISO MOSI PDIC PDID "unconnected-(J1-SPARE2-PadA19)" "unconnected-(J1-JTAG_TRST-PadB2)" "unconnected-(J1-JTAG_TDI-PadB3)" "unconnected-(J1-JTAG_TDO-PadB4)"
+    "unconnected-(J1-JTAG_TMS-PadB5)" "unconnected-(J1-JTAG_TCK-PadB6)" "unconnected-(J1-JTAG_VREF-PadB7)" "unconnected-(J1-JTAG_NRST-PadB8)" "unconnected-(J1-GND-PadB9)" "unconnected-(J1-HDR1-PadB11)" "unconnected-(J1-HDR3-PadB13)" "unconnected-(J1-HDR5-PadB15)"
+    CLK "unconnected-(J1-VCC1.2V-PadC11)" "unconnected-(J1-VCC1.8V-PadC12)" "unconnected-(J1-VCC2.5V-PadC13)" "unconnected-(J1-VCC5.0V-PadC15)" LED1 LED2 LED3
+    "unconnected-(U2-P1.5{slash}PWM5{slash}IC7{slash}~{SS}-Pad10)" "unconnected-(U2-P1.4{slash}SDA{slash}FB{slash}PWM1-Pad11)" "unconnected-(U2-P1.2{slash}PWM0{slash}IC0-Pad13)" CLKOUT
+    (clearance_class "kicad_default")
+    (via_rule "kicad_default")
+    (rule
+      (width 254.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class Power
+    GND VCC "Net-(J1-FILT_LP)" VBUS "unconnected-(J1-FILT_HP-PadC6)"
+    (clearance_class Power)
+    (via_rule Power)
+    (rule
+      (width 635.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
